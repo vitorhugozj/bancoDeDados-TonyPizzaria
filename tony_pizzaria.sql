@@ -46,7 +46,6 @@ id_produtos integer primary key not null auto_increment,
 titulo_produto varchar(30) not null,
 preco_produto varchar(6) not null,
 qtd_produto integer,
-validade_produto date,
 marca_produto varchar(20),
 id_pedidos integer,
 foreign key (id_pedidos) references pedidos(id_pedidos)
@@ -60,10 +59,10 @@ foreign key (id_produtos) references produtos(id_produtos)
 );
 
 insert into endereco(bairro, logradouro, cidade, cep)values
-('Casa 1', 'Rua 1', 'Itapevi', '06694-030'),
-('Casa 2', 'Rua 2', 'Itapevi', '06694-031'),
-('Casa 3', 'Rua 3', 'Itapevi', '06694-032'),
-('Casa 4', 'Rua 4', 'Itapevi', '06694-033');
+('Casa 1', 'Rua 1', 'Itapevi', 06694-030),
+('Casa 2', 'Rua 2', 'Itapevi', 06694-031),
+('Casa 3', 'Rua 3', 'Itapevi', 06694-032),
+('Casa 4', 'Rua 4', 'Itapevi', 06694-033);
 
 insert into clientes(nome, email, senha)values
 ('Luis', 'luis@gmail.com', 'luis1'),
@@ -83,14 +82,17 @@ insert into funcionarios(cpf, nome, cargo, carga_horaria, salario)values
 ('000.000.000-03', 'Bruno', 'Motoboy', '4', '1850'),
 ('000.000.000-04', 'Pamela', 'Balconista', '5', '2150');
 
-insert into produtos(titulo_produto, preco_produto, qtd_produto, validade_produto, marca_produto)values
-('Pizza de calabreza com queijo', '16.00', 1, 1, 'Tonny Pizzas'),
-('Pizza de peperoni com queijo', '19.00', 2, 1, 'Tonny Pizzas'),
-('Coca-cola 2L', '15.00', 200, 03/02/2024, 'Coca-Cola'),
-('Cerveja Heineken', '12.00', 4, 21/06/2025, 'Heineken');
+insert into produtos(titulo_produto, preco_produto, qtd_produto,marca_produto)values
+('Pizza de calabreza com queijo', 16.00, 1, 1, 'Tonny Pizzas'),
+('Pizza de peperoni com queijo', 19.00, 2, 1, 'Tonny Pizzas'),
+('Coca-cola 2L', 15.00, 200, 03/02/2024, 'Coca-Cola'),
+('Cerveja Heineken', 12.00, 4, 21/06/2025, 'Heineken');
 
 insert into categorias(nome_categoria)values
 ('Pizza Salgada'),
 ('Pizza Doce'),
 ('Bebida'),
 ('Sobremesa');
+
+
+drop database tony_pizzaria;
